@@ -11,24 +11,16 @@ import seaborn as sb
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-'''
+
 #-----------------#
 #    Load data    # 
 #-----------------#
 d1 = Deck("0.4g/0.4g.dem")
-d2 = Deck("0.8g/0.8g.dem")
-d3 = Deck("1.2g/1.2g.dem")
-d4 = Deck("1.6g/1.6g.dem")
-d5 = Deck("2.0g/2.0g.dem")
 
 #-----------------#
 #  get timesteps  #
 #-----------------#
 t1 = d1.numTimesteps - 301
-t2 = d2.numTimesteps - 301
-t3 = d3.numTimesteps - 301
-t4 = d4.numTimesteps - 301
-t5 = d5.numTimesteps - 301
 
 
 #----------------#
@@ -95,14 +87,10 @@ def Heatmap(deck, t1, t2):
     return(grid)
   
 #-------------------#
-#  create heatmaps  #
+#  create heatmap   #
 #-------------------#
 
 g1 = Heatmap(d1,t1, t1 + 300)
-g2 = Heatmap(d2,t2, t2 + 300)
-g3 = Heatmap(d3,t3, t3 + 300)
-g4 = Heatmap(d4,t4, t4 + 300)
-g5 = Heatmap(d5,t5, t5 + 300)
 
 #-----------------#
 #  set map color  #
@@ -120,33 +108,5 @@ df = pd.DataFrame(g1)
 mask = df.isnull()
 fig = plt.figure(1)
 ax = sb.heatmap(g1, vmax = 40, cmap=cmap, mask=mask, xticklabels=False, yticklabels=False, linewidth = 0.0, cbar_kws={'label': 'Velocity (m/s)'})
-ax.invert_yaxis() 
-fig.show()
-
-df = pd.DataFrame(g2)
-mask = df.isnull()
-fig = plt.figure(2)
-ax = sb.heatmap(g2, vmax = 40, cmap=cmap, xticklabels=False, yticklabels=False, linewidth = 0.0, cbar_kws={'label': 'Velocity (m/s)'})
-ax.invert_yaxis() 
-fig.show()
-
-df = pd.DataFrame(g3)
-mask = df.isnull()
-fig = plt.figure(3)
-ax = sb.heatmap(g3, vmax = 40, cmap=cmap, xticklabels=False, yticklabels=False, linewidth = 0.0, cbar_kws={'label': 'Velocity (m/s)'})
-ax.invert_yaxis()
-fig.show()
-
-df = pd.DataFrame(g4)
-mask = df.isnull()
-fig = plt.figure(4)
-ax = sb.heatmap(g4, vmax = 40, cmap=cmap, xticklabels=False, yticklabels=False, linewidth = 0.0, cbar_kws={'label': 'Velocity (m/s)'})
-ax.invert_yaxis() 
-fig.show()
-
-df = pd.DataFrame(g5)
-mask = df.isnull()
-fig = plt.figure(5)
-ax = sb.heatmap(g5, vmax = 40, cmap=cmap, xticklabels=False, yticklabels=False, linewidth = 0.0, cbar_kws={'label': 'Velocity (m/s)'})
 ax.invert_yaxis() 
 fig.show()
