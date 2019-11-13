@@ -95,10 +95,8 @@ g1 = Heatmap(d1,t1, t1 + 300)
 #-----------------#
 #  set map color  #
 #-----------------#
-'''
+
 cmap = sb.cubehelix_palette(start = 3, rot = -0.1, light = 0.8, dark = 0.1, as_cmap=True)
-
-
 
 #----------------#
 #   draw maps    #
